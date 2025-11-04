@@ -1,7 +1,7 @@
 🧩 TP Kubernetes – Déploiement d’un Front + API avec TLS & Rollback
 🎯 Objectif
 
-Déployer une application complète sur Kubernetes :
+Déployer une application complète sur Kubernetes K8s :
 
 Un front statique (nginxdemos/hello) exposé via /front
 Une API (mccutchen/go-httpbin) exposée via /api
@@ -70,3 +70,11 @@ Secret (identifiants DB)
 | **ConfigMap/Secret**          | Paramètres applicatifs              | Séparation des données sensibles et de la config |
 | **Rewrite Ingress**           | Gestion des paths `/front` & `/api` | Simplifie les URLs côté client                   |
 | **Rollback kubectl**          | Gestion de release                  | Démonstration de la résilience CI/CD             |
+
+
+
+https://workshop.local/front
+<img width="861" height="669" alt="image" src="https://github.com/user-attachments/assets/5fcae4f6-352a-4ef3-aa58-a0f3c03d557a" />
+
+<img width="862" height="665" alt="image" src="https://github.com/user-attachments/assets/8f68dc82-ff4b-4979-b441-720431965da6" />
+
