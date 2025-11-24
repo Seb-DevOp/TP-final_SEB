@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: ./app/api
+    container_name: datapress-api
+    environment:
+      ENVIRONMENT: "dev"
+      API_TOKEN: "dev-token-123" # équivalent à un Secret en local
+    ports:
+      - "8000:8000"
+    networks:
+      - datapress-net
+
+  front:
+    build:
+      context: ./app/front
+    container_name: datapress-front
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+    networks:
+      - datapress-net
+    # En dev, on garde config.js tel quel (apiUrl = http://localhost:8000)
+
+networks:
+  datapress-net:
+    driver: bridge

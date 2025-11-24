@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: datapress-front
+  namespace: datapress-recette
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: datapress-front
+  template:
+    metadata:
+      labels:
+        app: datapress-front
+    spec:
+      containers:
+        - name: front
+          image: ghcr.io/ton-user/datapress-front:latest # à adapter
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: config-volume
+              mountPath: /usr/share/nginx/html/config.js
+              subPath: config.js
+      volumes:
+        - name: config-volume
+          configMap:
+            name: datapress-config
+            items:
+              - key: config.js
+                path: config.js

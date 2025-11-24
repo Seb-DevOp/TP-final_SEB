@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: datapress-config
+  namespace: datapress-recette
+data:
+  # Config front : fichier config.js monté en volume
+  config.js: |
+    window.APP_CONFIG = {
+      apiUrl: "http://datapress-api.datapress-recette.svc.cluster.local",
+    };

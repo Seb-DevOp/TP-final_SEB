@@ -1,8 +1,0 @@
-# kubectl/helm sorties
-*.log
-# secrets réels non commités
-manifests/11-secret.yaml
-# éditeurs
-.vscode/
-.idea/
-.DS_Store
